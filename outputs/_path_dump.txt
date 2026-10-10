@@ -1,0 +1,26 @@
+﻿=== MACHINE PATH (order matters) ===
+ 0: D:\Program Files (x86)\VMware\bin\
+ 1: C:\Windows\system32
+ 2: C:\Windows
+ 3: C:\Windows\System32\Wbem
+ 4: C:\Windows\System32\WindowsPowerShell\v1.0\
+ 5: C:\Windows\System32\OpenSSH\
+ 6: C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common
+ 7: C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR
+ 8: C:\Program Files\dotnet\
+ 9: D:\Program Files\MEGA12
+10: C:\Program Files\MEGACC
+11: D:\Git\cmd
+12: D:\Program Files\python
+13: D:\Program Files\python\Scripts
+14: D:\msys64\mingw64\bin
+=== USER PATH ===
+D:\Program Files\python\Scripts\
+D:\Program Files\python\
+C:\Users\USER\AppData\Local\Microsoft\WindowsApps
+C:\Users\USER\AppData\Local\PowerToys\DSCModules\
+C:\Users\USER\AppData\Local\Python\bin
+D:\Program Files\PyCharm 2026.2.1\bin
+D:\Program Files\Microsoft VS Code\bin
+=== SIMULATED 'where python' (machine first, then user) ===
+HIT -> D:\Program Files\python\python.exe

@@ -1,0 +1,1 @@
+﻿D:\Program Files (x86)\VMware\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR;C:\Program Files\dotnet\;D:\Program Files\MEGA12;C:\Program Files\MEGACC;D:\Git\cmd;D:\msys64\mingw64\bin;
