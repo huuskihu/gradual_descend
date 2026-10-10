@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 手写数字识别器 —— 从 2012 年的老代码到 2026 年的完整实战
 
 > 灵感来源：B 站视频 + Michael Nielsen《Neural Networks and Deep Learning》
@@ -192,3 +193,7 @@ Stable Diffusion / Midjourney（扩散模型文生图）、Sora（视频生成�
 - Python 3.14.7（`D:\Program Files\python\python.exe`）
 - PyTorch 2.14.0+cu130，CUDA 可用（NVIDIA RTX 5070 Laptop GPU, 8GB）
 - NumPy 2.5.3 / matplotlib 3.11.2 / Pillow 12.3.0 / tkinter 9.0
+=======
+# gradual_descend
+GD algorithm
+>>>>>>> 557cba3253882ff9a9b2c41546ace874e1dd006e
