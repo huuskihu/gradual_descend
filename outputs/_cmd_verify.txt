@@ -1,0 +1,3 @@
+﻿resolved python : D:\Program Files\python\python.exe
+version         : Python 3.14.7
+torch check     : torch 2.14.0+cu130 | cuda True | exe D:\Program Files\python\python.exe

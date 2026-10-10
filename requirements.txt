@@ -1,0 +1,7 @@
+# 本项目依赖（Python 3.14 实测通过）
+# PyTorch 需按官网命令安装 CUDA 版本：https://pytorch.org  （pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130）
+numpy>=2.0
+torch>=2.5
+matplotlib>=3.9
+pillow>=10.0
+tqdm>=4.66

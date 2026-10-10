@@ -1,0 +1,1 @@
+﻿IsAdmin=False; User=HUUSKIHU-PC\ASUS-PC
