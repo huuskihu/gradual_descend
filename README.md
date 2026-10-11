@@ -14,34 +14,35 @@ GD algorithm
 | 步骤 | 模型 | 测试集准确率 | 训练耗时 | 用了什么工具 |
 |---|---|---|---|---|
 | Step 1 | 784-30-10 全连接（视频原版结构） | **95.66%** | 8.4 s | 纯 NumPy，手写反向传播 |
-| Step 2 | 784-128-10 MLP + ReLU + Adam | **97.64%** | 18.4 s | PyTorch，GPU (RTX 5070) |
+| Step 2 | 784-128-10 MLP + ReLU + Adam | **97.64%** | 18.4 s | PyTorch，GPU |
 | Step 3 | CNN（Conv+Pool+Dropout） | **99.32%** | 13.4 s | PyTorch，GPU |
 | 最终 | `recognize_draw.py` 画板识别器 | 实时推理 <10 ms | — | tkinter + 上面的 CNN |
 
-视频时代的原版效果约 95%，本项目最终做到了 **99.3%**，并做成了可以在屏幕上写字的交互识别器。
+视频时代的原版效果约 95%，本项目最终做到了 **99.3%**，并做成��可以在屏幕上写字的交互识别器。
 
 ## 快速开始
 
-> ⚠️ **先确认你用的是哪个 Python！** 电脑里装了多个 Python 时，cmd 里敲 `python`
-> 可能命中 MSYS2 的那个（没装任何库）。**推荐用本目录的 `run.cmd`**，或在 PyCharm 里
-> 把解释器指定为 `D:\Program Files\python\python.exe`。详见下方[用哪个 Python](#用哪个-python常见坑)。
+> ⚠️ **先确认你使用的是正确的 Python 环境。** 如果电脑里安装了多个 Python，
+> 命令行中的 `python` 可能不是安装了项目依赖的那个解释器。推荐使用本目录的 `run.cmd`，
+> 或在 PyCharm / VS Code 中选择正确的项目解释器。详见下方[用哪个 Python](#用哪个-python常见坑)。
 
 ```bash
-cd C:\Users\USER\Desktop\files\code\ml
+cd <项目目录>
 
-run 00_env_check.py                  # 0. 环境自检（推荐，run.cmd 自动选对解释器）
+run 00_env_check.py                  # 0. 环境自检（推荐，run.cmd 自动选择项目解释器）
 run src\step0_python_basics.py       # 1. Python 语法速成（零基础先跑这个）
 run src\mnist_data.py                # 2. 认识数据（生成样例图）
-run src\step1_numpy_nn.py            # 2. 纯手写神经网络（教学核心，8 秒）
+run src\step1_numpy_nn.py            # 2. 纯手写神经网络（教学核心）
 run src\step2_torch_mlp.py           # 3. PyTorch 版，体会框架的便利
 run src\step3_torch_cnn.py           # 4. CNN，冲击 99%
 run src\step4_ablation.py            # 5. 对比实验：激活函数/优化器
 run recognize_draw.py                # 6. 手写识别器（画板写数字，AI 实时认）
 ```
 
-若不使用 `run.cmd`，请写完整路径：
+若不使用 `run.cmd`，请使用当前 Python 环境运行：
+
 ```bash
-D:\Program Files\python\python.exe src\step1_numpy_nn.py
+python src/step1_numpy_nn.py
 ```
 
 ## 目录结构
@@ -74,7 +75,7 @@ ml/
 代码里带逐行注释。每一格都能单独运行、当场看到结果，比读代码更适合入门。
 
 ```bash
-run -m jupyter lab          # 或直接在 PyCharm / VS Code 里双击打开 .ipynb
+python -m jupyter lab          # 或直接在 PyCharm / VS Code 里打开 .ipynb
 ```
 
 打开后：选中格子按 `Shift + Enter` 逐格运行（PyCharm 点格子左侧绿色三角）。
@@ -119,15 +120,12 @@ run -m jupyter lab          # 或直接在 PyCharm / VS Code 里双击打开 .ip
 
 **治本三步**（配好之后 90% 的红字消失）：
 
-1. **打开文件夹而不是单个文件**：`File > Open` 选 `C:\Users\USER\Desktop\files\code\ml`
-   （整个文件夹作为一个项目打开，PyCharm 才会建立 `.idea` 配置）
-2. **配解释器**：`Ctrl+Alt+S > Project: ml > Python Interpreter > Add Interpreter >
-   System Interpreter` 选 `D:\Program Files\python\python.exe`。
-   配好后 `torch.__version__` 之类立刻能解析。
-3. **标记源码根目录**：在左侧项目树右键 `src` 文件夹 > `Mark Directory as > Sources Root`
+1. **打开项目文件夹而不是单个文件**：在 PyCharm 中选择项目根目录作为项目打开。
+2. **配置解释器**：`Ctrl+Alt+S > Project > Python Interpreter`，选择已安装项目依赖的 Python 解释器。
+3. **标记源码根目录**：在左侧项目树右键 `src` 文件夹 > `Mark Directory as > Sources Root`。
    （标记后 `src` 变蓝色），`import mnist_data` 等引用就能解析了。
 
-剩下的拼写警告可以关掉：`Ctrl+Alt+S > Editor > Inspections > Proofreading > Typo` 取消勾选。
+剩下的拼写警告可以关闭：`Ctrl+Alt+S > Editor > Inspections > Proofreading > Typo` 取消勾选。
 判定真伪的终极标准：**跑一遍 `00_env_check.py` 全绿 = 环境没问题**；
 notebook 里格子能出结果 = 代码没问题。IDE 的红字只是"猜测"。
 
@@ -165,26 +163,36 @@ Stable Diffusion / Midjourney（扩散模型文生图）、Sora（视频生成�
 
 ## 用哪个 Python（常见坑）
 
-你电脑上至少有 3 个 Python，敲 `python` 会命中 PATH 里最靠前的那个：
+如果电脑上安装了多个 Python，命令行中的 `python` 可能指向没有安装项目依赖的解释器。
+先运行下面的命令检查当前使用的是哪个 Python：
 
-| 路径 | 有没有装 PyTorch | 说明 |
-|---|---|---|
-| `D:\Program Files\python\python.exe` | ✅ 有（2.14.0+cu130） | **本项目该用这个** |
-| `D:\msys64\mingw64\bin\python.exe` | ❌ 没有，连 pip 都没有 | MSYS2 自带，别用 |
-| `C:\Users\USER\.workbuddy\...\python.exe` | ❌ 没有 | 工具链自带 |
+```bash
+python --version
+python -c "import sys; print(sys.executable)"
+```
 
-**症状**：`ModuleNotFoundError: No module named 'numpy'` —— 不是没装库，是用错了解释器。
+如果输出的解释器不是你安装项目依赖的环境，请使用以下任一方式：
 
-**三种解法（任选）**：
-1. **最省事**：用项目里的 `run.cmd`（已写好正确路径）：`run src\step1_numpy_nn.py`
-2. **PyCharm 用户（推荐）**：`File > Settings > Python Interpreter > Add Interpreter > System Interpreter`
-   选择 `D:\Program Files\python\python.exe`。配好之后点绿色三角就能直接跑，一劳永逸。
-3. **彻底修好 cmd**：双击本目录的 **`fix_path.cmd`**，弹出 UAC 时点"是"。
-   它会自动备份系统 PATH，并把 `D:\Program Files\python` 插到 MSYS2 条目**之前**
-   （Windows 规则：系统 PATH 优先于用户 PATH，所以必须改系统级 PATH，因此需要管理员权限）。
-   之后**新开**一个 cmd 窗口敲 `python` 即可。
-   备份在 `outputs\_path_backup_machine.txt`，想还原随时可改回。
-   ✅ 本机已于 2026-10-03 执行完毕并验证通过：`python` → `D:\Program Files\python\python.exe`，`import torch` 正常，CUDA 可用。
+1. **使用项目里的 `run.cmd`**（Windows）：`run src\step1_numpy_nn.py`
+2. **在 PyCharm / VS Code 中选择正确的 Python 解释器**，并确认已安装 `requirements.txt` 中的依赖。
+3. **使用虚拟环境**，避免不同项目之间的依赖互相影响：
+
+   ```bash
+   python -m venv .venv
+   # Windows PowerShell
+   .venv\Scripts\Activate.ps1
+   # Windows cmd
+   .venv\Scripts\activate.bat
+   # macOS / Linux
+   source .venv/bin/activate
+   ```
+
+如果遇到 `ModuleNotFoundError: No module named 'numpy'`，通常是当前解释器没有安装项目依赖，
+或命令行使用了与 IDE 不同的 Python。激活正确环境后安装依赖：
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 ## 常见问题（详见 docs/教学讲义.md）
 
@@ -192,9 +200,7 @@ Stable Diffusion / Midjourney（扩散模型文生图）、Sora（视频生成�
 - **学习率怎么选？** —— 先用默认值跑通，再看损失曲线：震荡→调小；不下降→调大。
 - **为什么我的结果和你的不一样？** —— 随机初始化不同。固定 `--seed` 可复现。
 
-## 环境说明（本机实测）
+## 环境说明
 
-- Python 3.14.7（`D:\Program Files\python\python.exe`）
-- PyTorch 2.14.0+cu130，CUDA 可用（NVIDIA RTX 5070 Laptop GPU, 8GB）
-- NumPy 2.5.3 / matplotlib 3.11.2 / Pillow 12.3.0 / tkinter 9.0
-
+项目依赖和安装方式请参见 `requirements.txt`。实际训练速度和 GPU 加速效果会因操作系统、
+Python 版本、PyTorch 版本以及硬件配置而异。
