@@ -5,7 +5,7 @@ GD algorithm
 
 # 手写数字识别器 —— 从 2012 年的老代码到 2026 年的完整实战
 
-> 灵感来源：B 站视频 + Michael Nielsen《Neural Networks and Deep Learning》
+> 灵感来源：3b1b深度学习系列视频[【官方双语】深度学习之神经网络的结构 Part 1 ver 2.0-哔哩哔哩】] (https://b23.tv/5TdNQtn “video”) + Michael Nielsen《Neural Networks and Deep Learning》
 > （原仓库代码依赖 Theano，已于 2017 年停止维护，本项目用 NumPy + PyTorch 全部重写，
 > **但那份人工标注的 70000 张手写数字图片（MNIST）是经典数据集，完全可继续使用。**）
 
