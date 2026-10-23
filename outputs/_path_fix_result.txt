@@ -1,5 +1,0 @@
-﻿BACKUP saved to C:\Users\USER\Desktop\files\code\ml\outputs\_path_backup_machine.txt
-Inserted python entries before MSYS2 (index 12).
-Machine PATH updated successfully.
-WM_SETTINGCHANGE broadcast sent.
-STATUS=OK

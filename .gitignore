@@ -1,0 +1,38 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 本机诊断输出（含用户名 / PATH / 本机路径）
+outputs/_*.txt
+outputs/_*.ps1
+
+# 日志 / 临时
+*.log
+*.tmp
+*.bak
+
+# 凭据（绝不提交）
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.token
+*.secret
+secrets/
+credentials*
